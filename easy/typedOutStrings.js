@@ -33,3 +33,31 @@ S: "a###b" T: "b" //returns true
 S: "Ab#z"   T: "ab#z" returns false case sensitive.
 
 */
+//BRUTE FORCE
+const builtArray = (string) => {
+  let array = [];
+  for (let x = 0; x < string.length; x++) {
+    if (string[x] !== "#") {
+      array.push(string[x]);
+    } else {
+      array.pop();
+    }
+  }
+  return array;
+};
+
+const compareStrings = (s, t) => {
+  const finalS = builtArray(s);
+  const finalT = builtArray(t);
+
+  if (finalS.length !== finalT.length) {
+    return false;
+  } else {
+    for (let x = 0; x < finalS.length; x++) {
+      if (finalS[x] !== finalT[x]) {
+        return false;
+      }
+    }
+  }
+  return true;
+};
