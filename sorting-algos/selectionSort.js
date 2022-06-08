@@ -16,3 +16,14 @@ const selectionSort = (array) => {
   }
   return array;
 };
+
+/*
+//The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning. 
+In our solution:
+
+X is the number that is currently the "min"
+Y is the number that is scanning ahead, looking for the number lower than the current min. 
+When y points at a number lower than x, y becomes the new "min", and then the loop continues until it reaches the end of the array
+If y reaches the end of the array without changing the min, it means that the element that x is pointing at is the smallest number in the array. In this case, number[x] will be moved to the first position.
+
+*/
