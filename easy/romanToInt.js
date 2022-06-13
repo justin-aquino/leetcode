@@ -16,11 +16,10 @@ const romanToInt = (s) => {
 
     if (current < next) {
       result += next - current;
+      i++;
     } else {
       result += current;
     }
   }
   return result;
 };
-
-console.log(romanToInt("III"));
