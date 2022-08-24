@@ -116,7 +116,7 @@ const findTwoSum = (nums, target) => {
 console.log(findTwoSum([1, 3, 7, 9, 2], 11)); //returns [3,4]
 
 // let food = {
-//   "banana": "plantains",
+//   "banana": "plantains",t
 //   "apple": "circle",
 //   "oranges": "citrus"
 // }
