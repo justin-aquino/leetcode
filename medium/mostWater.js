@@ -52,3 +52,53 @@ So let's calculate.
 For 6 and 9, the width would be 6 *5 = 30
 for 8 and 9, the width would be 8 * 4 = 32. So it would actually be 8 and 9. Not the one that's farther apart.
 */
+
+//NOTE the problem wants to find the GREATEST. Meaning we would compare all elements to get the max value.
+
+
+// area = l * w
+//the length would be the lesser value of the two pillars.
+// (a, b) a is the left value, and right is b.
+// in this case, a is the lesser value, which would be our height. so the formula is as follows:
+
+/*min(a,b) x (bi - ai) 
+ length would be whichever is the minimum between a and b, multiplied by (the index of b minus(higher value) the index of a(lesser value))
+
+*/
+
+
+//BRUTE FORCE
+
+/*
+We're gonna do two pointers for brute force. a and b would be our pointers.
+
+maxArea initializes at 0
+
+
+let maxArea = 0;
+
+first loop, we compare a and b which points at index 0 and 1.
+
+min(7,1) * ( 1 - 0) = 1. So one is greater than our current maxArea which is 0. So we replace that with one. And so on and so forth. 
+Once b reaches the end of the array, a moves 1 space forward, and the loop goes on until a reaches the end fo the array.
+*/
+
+const getMaxWaterContainer = (heights) => {
+
+    let maxArea = 0;
+
+    //double pointers technique
+
+    for(let p1 = 0 ; p1 < heights.length; p1++){
+        for(let p2 = p1 + 1; p2 < heights.length; p2++){
+            const height = Math.min(heights[p1], heights[p2])// this looks for the lesser value between two pointers.
+            const width = p2 - p1
+            const area = height * width
+
+            maxArea = Math.max(maxArea, area)
+        }
+    }
+
+    return maxArea;
+
+}
