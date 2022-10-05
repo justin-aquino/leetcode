@@ -8,6 +8,7 @@ const insertionSort = (array) => {
       array.unshift(array.splice(x, 1)[0]);
     } else {
       for (let y = 1; y < length; y++) {
+        //this is where we figure out where to put the number we unshifted on first for loop
         if (array[x] > array[y - 1] && array[x] < array[y]) {
           //move number to the correct spot
           array.splice(y, 0, array.splice(x, 1)[0]);
