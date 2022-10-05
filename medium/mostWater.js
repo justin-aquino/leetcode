@@ -28,3 +28,27 @@
 
 //TEST CASES
 
+// 1.
+
+let container = [ 7,1,2,3,9] // the container would be 7 and 9 because they're the 2 highest number that is fathest apart. L = 7, because the water would spill over 7
+// width would be the distance between the two pillars.
+/*
+    we use the index calculation to figure out the width between the two walls. 7 would be in the 0th index, 9 would be 4th index.
+    Subtract the indeces to figure out the distance. 4- 0 = 4. 4 is the distance/width.
+
+    7 * 4 = 28.
+*/
+
+//2. [] = 0 because you can't make a container without pillars.
+
+//3. [2] = 0 because we need two values to make a container.
+
+/*
+let container = [6,9,3,4,5,8]
+
+In this case, it's not obvious which two is values can contain the max amount of water. It can be 6 and 8, or 9 and 8.
+So let's calculate.
+
+For 6 and 9, the width would be 6 *5 = 30
+for 8 and 9, the width would be 8 * 4 = 32. So it would actually be 8 and 9. Not the one that's farther apart.
+*/
