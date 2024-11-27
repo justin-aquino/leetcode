@@ -25,12 +25,11 @@
         [1,7,2,8,1,6]
 */
 
-
 //TEST CASES
 
 // 1.
 
-let container = [ 7,1,2,3,9] // the container would be 7 and 9 because they're the 2 highest number that is fathest apart. L = 7, because the water would spill over 7
+let container = [7, 1, 2, 3, 9]; // the container would be 7 and 9 because they're the 2 highest number that is fathest apart. L = 7, because the water would spill over 7
 // width would be the distance between the two pillars.
 /*
     we use the index calculation to figure out the width between the two walls. 7 would be in the 0th index, 9 would be 4th index.
@@ -55,7 +54,6 @@ for 8 and 9, the width would be 8 * 4 = 32. So it would actually be 8 and 9. Not
 
 //NOTE the problem wants to find the GREATEST. Meaning we would compare all elements to get the max value.
 
-
 // area = l * w
 //the length would be the lesser value of the two pillars.
 // (a, b) a is the left value, and right is b.
@@ -65,7 +63,6 @@ for 8 and 9, the width would be 8 * 4 = 32. So it would actually be 8 and 9. Not
  length would be whichever is the minimum between a and b, multiplied by (the index of b minus(higher value) the index of a(lesser value))
 
 */
-
 
 //BRUTE FORCE
 
@@ -84,21 +81,19 @@ Once b reaches the end of the array, a moves 1 space forward, and the loop goes 
 */
 
 const getMaxWaterContainer = (heights) => {
+ let maxArea = 0;
 
-    let maxArea = 0;
+ //double pointers technique
 
-    //double pointers technique
+ for (let p1 = 0; p1 < heights.length; p1++) {
+  for (let p2 = p1 + 1; p2 < heights.length; p2++) {
+   const height = Math.min(heights[p1], heights[p2]); // this looks for the lesser value between two pointers.
+   const width = p2 - p1;
+   const area = height * width;
 
-    for(let p1 = 0 ; p1 < heights.length; p1++){
-        for(let p2 = p1 + 1; p2 < heights.length; p2++){
-            const height = Math.min(heights[p1], heights[p2])// this looks for the lesser value between two pointers.
-            const width = p2 - p1
-            const area = height * width
+   maxArea = Math.max(maxArea, area);
+  }
+ }
 
-            maxArea = Math.max(maxArea, area)
-        }
-    }
-
-    return maxArea;
-
-}
+ return maxArea;
+};
